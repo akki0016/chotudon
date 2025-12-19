@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cutie Pages 💖</title>
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* ===== BASE BACKGROUND ===== */
+body {
+  min-height: 100vh;
+  background: radial-gradient(circle at top, #1a0033, #050014);
+  overflow: hidden;
+  color: white;
+}
+
+/* ===== FLOATING HEARTS & SPARKLES ===== */
+.particles span {
+  position: absolute;
+  animation: float 12s linear infinite;
+  opacity: 0.8;
+}
+
+.particles span::before {
+  content: "❤";
+  color: pink;
+  font-size: 14px;
+}
+
+.particles span.sparkle::before {
+  content: "✦";
+  color: #fff;
+}
+
+@keyframes float {
+  from {
+    transform: translateY(110vh) scale(0.5);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(-10vh) scale(1);
+    opacity: 1;
+  }
+}
+
+/* ===== PAGE HANDLING ===== */
+.page {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.page.active {
+  display: flex;
+}
+
+/* ===== CONTAINER ===== */
+.box {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(12px);
+  border-radius: 22px;
+  padding: 30px;
+  max-width: 420px;
+  width: 100%;
+  text-align: center;
+  box-shadow: 0 0 30px rgba(255, 105, 180, 0.3);
+}
+
+.box h1 {
+  font-size: 1.8rem;
+  margin-bottom: 15px;
+}
+
+.box p {
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+/* ===== BUTTON ===== */
+button {
+  margin-top: 25px;
+  padding: 12px 30px;
+  border: none;
+  border-radius: 30px;
+  background: linear-gradient(45deg, #ff4ecd, #ff8bdc);
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: transform 0.25s;
+}
+
+button:hover {
+  transform: scale(1.07);
+}
+
+/* ===== THIRD PAGE SPECIAL ANIMATION ===== */
+.page3 {
+  background: linear-gradient(180deg, #12002f, #2b005c);
+}
+
+.animated-box {
+  animation: pulseGlow 3s ease-in-out infinite;
+  box-shadow: 0 0 40px rgba(255, 150, 220, 0.6);
+}
+
+@keyframes pulseGlow {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 0 20px rgba(255, 150, 220, 0.4);
+  }
+  50% {
+    transform: scale(1.05);
+    box-shadow: 0 0 50px rgba(255, 180, 240, 0.8);
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 20px rgba(255, 150, 220, 0.4);
+  }
+}
+
+/* ===== MOBILE ===== */
+@media (max-width: 480px) {
+  .box h1 {
+    font-size: 1.5rem;
+  }
+  .box p {
+    font-size: 0.95rem;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<!-- PARTICLES -->
+<div class="particles">
+  <span class="sparkle" style="left:10%; animation-duration:9s;"></span>
+  <span style="left:25%; animation-duration:12s;"></span>
+  <span class="sparkle" style="left:45%; animation-duration:10s;"></span>
+  <span style="left:65%; animation-duration:14s;"></span>
+  <span class="sparkle" style="left:85%; animation-duration:8s;"></span>
+</div>
+
+<!-- PAGE 1 -->
+<div class="page active" id="page1">
+  <div class="box">
+    <h1>Hey Cutie 💖</h1>
+    <p>
+      few lines for a little princess ✨
+    </p>
+    <button onclick="goToPage(2)">Continue</button>
+  </div>
+</div>
+
+<!-- PAGE 2 -->
+<div class="page" id="page2">
+  <div class="box">
+    <h1>Just Saying 💕</h1>
+    <p>
+       Stay happy, keep smiling, and never forget  
+      how special you are 🌙✨
+    </p>
+    <button onclick="goToPage(3)">Next</button>
+  </div>
+</div>
+
+<!-- PAGE 3 -->
+<div class="page page3" id="page3">
+  <div class="box animated-box">
+    <h1>For You ✨</h1>
+    <p>
+        Tumari chahare pe jo noor hai ✨ vo kisi aur me kahan, tumari aankho me jo chamak 🌟 hai vo kisi aur me kahan, tumari muskurahat me jo sukoon 😊💖 hai vo kisi aur me kahan. Hoti hogi har kisi ki dost pyari 🥰 par har koi tumari jesi khoobsurat 😍💫 kahan?
+    </p>
+  </div>
+</div>
+
+<script>
+function goToPage(pageNumber) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.getElementById('page' + pageNumber).classList.add('active');
+}
+</script>
+
+</body>
+</html>
